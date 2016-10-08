@@ -1,0 +1,38 @@
+@font-face {
+	font-family: "Aniron"; src: url("../fonts/anirm___.ttf");
+}
+
+@font-face {
+	font-family: "Aniron"; font-weight: bold; src: url("../fonts/anirb___.ttf");
+}
+
+@font-face {
+	font-family: "Ringbearer"; src: url("../fonts/ringm___.ttf");
+}
+
+.aniron {
+	font-family: "Aniron";
+}
+
+.ringbearer {
+	font-family: "Ringbearer";
+}
+
+#blanks {
+  background-color: darkgreen;
+  color: chartreuse;
+  font-size: 36px;
+  font-family: "Aniron", serif;
+  font-weight: bold;
+}
+
+#word {
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+#incorrect {
+  color: red;
+  font-family: "Aniron", serif;
+}
