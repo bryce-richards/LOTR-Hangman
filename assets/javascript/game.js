@@ -1,81 +1,88 @@
-var names =[
-  "ARAGORN",
-  "LEGOLAS", 
-  "GIMLI",
-  "FRODO",
-  "SAMWISE",
-  "PIPPIN",
-  "GANDALF",
-  "MERRY",
-  "BOROMIR",
-  "SAURON",
-  "GOLLUM",
-  "SMEAGOL",
-  "BILBO",
-  "ELROND",
-  "ARWEN",
-  "GALADRIEL",
-  "SARUMAN",
-  "EOMER",
-  "THEODEN",
-  "EOWYN",
-  "TREEBEARD",
-  "FARAMIR",
-  "DENETHOR",
-  "WORMTONGUE"
-  ];
+//game object
 
-var alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var availableHTML = document.getElementById("available");
+var livesHTML = document.getElementById("lives");
+var incorrectHTML = document.getElementById("incorrect");
+var wordHTML = document.getElementById("word")
+var blanksHTML = document.getElementById("blanks");
 
-function guess(input, word) {}
-
-
-var guessedLetters = [];
-var blankWord = [];
-var usedWords = [];
-var word = names[Math.floor(Math.random()*names.length)];
-usedWords.push(word);
-  // remove selected word from array
-  names.splice(names.indexOf(word), 1);
-
-
-  // display dashes for length of word
-  var wordHTML = document.getElementById("word");
-  //wordHTML.innerHTML = word;
-  var blanks = document.getElementById("blanks");
-  var input = document.getElementById("input");
-  var incorrectLetters = [];
-  var incorrect = document.getElementById("incorrect");
-  var livesHTML = document.getElementById("lives");
-  var lives = 8;
-
-  for (var i = 0; i < word.length; i++) {
-    blankWord.push("_ ");
-  };
-  blanks.innerHTML = blankWord.join("");
-
-  var wrongGuesses = 0; 
-  var correctGuesses = 0;
-   livesHTML.innerHTML = lives;
-  document.onkeyup = function(event) {
-  			userInput = String.fromCharCode(event.keyCode).toUpperCase(); 
-
-  var correctLetters = 0;
-   for (var i = 0; i < word.length; i++) {
-      if (word.charAt(i) === userInput) {
-       correctLetters++;
-       blankWord[i] = userInput;
+var game = {
+  lives: 8,
+  names:
+    ["ARAGORN",
+    "LEGOLAS", 
+    "GIMLI",
+    "FRODO",
+    "SAMWISE",
+    "PIPPIN",
+    "GANDALF",
+    "MERRY",
+    "BOROMIR",
+    "SAURON",
+    "GOLLUM",
+    "SMEAGOL",
+    "BILBO",
+    "ELROND",
+    "ARWEN",
+    "GALADRIEL",
+    "SARUMAN",
+    "EOMER",
+    "THEODEN",
+    "EOWYN",
+    "TREEBEARD",
+    "FARAMIR",
+    "DENETHOR",
+    "WORMTONGUE"],
+  
+  blankArray: function(word) {
+    var blankWord = [];
+    for (var i = 0; i < word.length; i++) {
+      blankWord.push("_");
+    };
+    return blankWord.join(" ")
+  },
+  
+  newWord: function() {
+    return this.names[Math.floor(Math.random()*this.names.length)];
+  },
+  
+  removeWord: function(word) {
+    this.names.splice(this.names.indexOf(word), 1);
+  },
+  availableLetters: ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"],
+  guessedLetters: [],
+  incorrectLetters: [],
+  isCorrect: function(word, array) {
+    var correctLetters = 0;
+    document.onkeyup = function(event) {
+      var userInput = String.fromCharCode(event.keyCode).toUpperCase(); 
+      for (var j = 0; j < word.length; j++) {
+        if (word.charAt(j) === userInput) {
+          correctLetters++;
+          array[j] = userInput;
+        }
       }
-     }
-   if (correctLetters === 0) {
-       incorrectLetters.push(userInput + " "); 
-       guessedLetters.push(userInput);
-        lives--;
-   }
-
-   blanks.innerHTML = blankWord.join("");
-   incorrect.innerHTML = incorrectLetters.join("");
-   livesHTML.innerHTML = lives;
+      if (correctLetters === 0) {
+        this.incorrectLetters.push(userInput); 
+        this.availableLetters.splice(this.names.indexOf(word), 1);
+        this.guessedLetters.push(userInput);
+        this.lives--;
+        incorrectHTML.innerHTML = this.incorrectLetters.join(" ");
+      }
+    }
   }
+
+}
+
+
+
+var currentWord = game.newWord();
+var currentBlanks = game.blankArray(currentWord);
+blanksHTML. innerHTML = currentBlanks;
+availableHTML.innerHTML = game.availableLetters.join(" ");
+
+game.isCorrect(currentWord, currentBlanks);
+
+
 
 

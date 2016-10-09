@@ -2,24 +2,42 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Basic File</title>	
+	<title>LOTR - Hangman</title>	
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Goudy+Bookletter+1911" rel="stylesheet">
+
+
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <h1 class="aniron">Lord of the Rings</h1>
-  <h2 class="aniron">HANGMAN</h2>
-  <div id="word">
-  </div>
-  <div id="blanks">
-  </div>
-  <div id="input">
+  <h1 class="aniron">LORD OF THE RINGS</h1>
+  <h2 class="goudy">HANGMAN</h2>
+  <div class="bungee" id="blanks">
   </div>
   <br>
-  <div id="incorrect">
+  <div class="aniron centered" id="available">
   </div>
-  <div id="lives">
+  <div class="goudy" id="incorrect">
   </div>
-  <script type="text/javascript" src="assets/javascript/game.js"></script>
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="goudy" id="lives">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="goudy" id="score">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="alert">
+  </div>
+  <div id="win">
+  </div>
+  <div id="lose">
+  <button onclick="quit()">Quit</button>
+  <button onclick="newWord()" id="newWord">Next Word</button>
+  <script type="text/javascript" src="assets/javascript/game2.js"></script>
 
 </body>
 </html>

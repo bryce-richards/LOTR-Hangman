@@ -10,6 +10,20 @@
 	font-family: "Ringbearer"; src: url("../fonts/ringm___.ttf");
 }
 
+h1, h2 {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+#newWord {
+	display: none;
+}
+
+.centered {
+	text-align: center;
+}
+
 .aniron {
 	font-family: "Aniron";
 }
@@ -18,21 +32,34 @@
 	font-family: "Ringbearer";
 }
 
+.goudy {
+	font-family: 'Goudy Bookletter 1911', serif;
+}
+
+.bungee {
+	font-family: 'Bungee Hairline', cursive;
+}
+
 #blanks {
-  background-color: darkgreen;
-  color: chartreuse;
-  font-size: 36px;
-  font-family: "Aniron", serif;
-  font-weight: bold;
+	background-color: darkgreen;
+	color: chartreuse;
+	font-size: 36px;
+	font-weight: bold;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#lives {
+	margin-top: 10px;
+	font-size: 24px;
 }
 
 #word {
-  font-size: 24px;
-  font-weight: bold;
-
+	font-size: 24px;
+	font-weight: bold;
 }
 
 #incorrect {
-  color: red;
-  font-family: "Aniron", serif;
+	text-align: center;	
+	color: red;
 }
