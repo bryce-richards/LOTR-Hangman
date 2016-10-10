@@ -15,6 +15,7 @@ var names =[
   "SAURON",
   "GOLLUM",
   "SMEAGOL",
+  "HALDIR",
   "BILBO",
   "ELROND",
   "ARWEN",
@@ -47,10 +48,29 @@ var wordDisplay = [];
 // words already selected from main names array
 var usedWords = [];
 
+// boolean variables
+var isAvailable = false;
+var isCorrect = false;
+var alreadyGuessed = false;
+var isGuessed = true;
+
+/* Function to select a random word from the names array
+*/
+function pickWord(array) {
 // select a random word from the names array
-var word = names[Math.floor(Math.random()*names.length)];
-usedWords.push(word);
-names.splice(names.indexOf(word), 1);
+  array[Math.floor(Math.random()*array.length)];
+  usedWords.push(word);
+  names.splice(names.indexOf(word), 1);
+
+  // displays initial blank dashes
+  for (var i = 0; i < word.length; i++) {
+    wordDisplay.push("_");
+  };
+  wordDisplayHTML.innerHTML = wordDisplay.join(" ");
+  //
+}
+/*
+*/
 
 // set up HTML shortcuts
 var wordDisplayHTML = document.getElementById("blanks");
@@ -69,13 +89,6 @@ var loseHTML = document.getElementById("lose");
 
 var newWordHTML = document.getElementById("newWord");
 
-// displays initial blank dashes
-for (var i = 0; i < word.length; i++) {
-  wordDisplay.push("_");
-};
-wordDisplayHTML.innerHTML = wordDisplay.join(" ");
-//
-
 // display guesses left
 guessesLeftHTML.innerHTML = guessesLeft;
 
@@ -88,7 +101,7 @@ document.onkeyup = function(event) {
   newWordHTML.style.display="none";
   alertHTML.innerHTML = "";
   // check if guess has already been guessed
-  var isAvailable = false;
+  isAvailable = false;
 
   for (var i = 0; i < availableLetters.length; i++) {
     if (availableLetters[i] === userInput)
@@ -102,7 +115,7 @@ document.onkeyup = function(event) {
     availableLetters.splice(availableLetters.indexOf(userInput), 1)
 
     // keep track of how many letters that match the player's selection
-    var isCorrect = false;
+    isCorrect = false;
 
     // check if selection is in the word
     for (var j = 0; j < word.length; j++) {
@@ -126,7 +139,7 @@ document.onkeyup = function(event) {
 
   // else if letter is not available
   else {
-    var alreadyGuessed = false;
+    alreadyGuessed = false;
 
     // check if letter has already been guessed
     for (var k = 0; k < guessedLetters.length; k++) {
@@ -150,7 +163,7 @@ document.onkeyup = function(event) {
   }
 
   // check if word is guessed
-  var isGuessed = true;
+  isGuessed = true;
   for (var l = 0; l < wordDisplay.length; l++) {
     if (wordDisplay[l] === "_") {
       isGuessed = false;
@@ -163,6 +176,8 @@ document.onkeyup = function(event) {
     score++;
     newWordHTML.style.display="block";
   }
+
+
 
   // display stats
   incorrectLettersHTML.innerHTML = incorrectLetters.join(" ")

@@ -2,30 +2,48 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>LOTR - Hangman</title>	
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+  <title>LOTR - Hangman</title> 
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/bootstrap-3.3.7/docs/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="asets/dashgumfree_v2/Theme/assets/css/style.css" rel="stylesheet">
+  
+  <link href="asets/dashgumfree_v2/Theme/assets/css/style-responsive.css" rel="stylesheet">
+
   <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Goudy+Bookletter+1911" rel="stylesheet">
 
-
   <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 <body>
+
+  <section class="container">
   <h1 class="aniron">LORD OF THE RINGS</h1>
   <h2 class="goudy">HANGMAN</h2>
-  <div class="bungee" id="blanks">
+  <article>
+  <div class="row" id="wordPhoto">
   </div>
-  <br>
+  <div class="bungee" id="wordDisplay">
+  </div>
   <div class="aniron centered" id="available">
   </div>
   <div class="goudy" id="incorrect">
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12 goudy">
     <div class="row">
       <div class="col-md-6">
-        <div class="goudy" id="lives">
+        Lives: 
+        <div class="bungee" id="lives">
         </div>
       </div>
       <div class="col-md-6">
-        <div class="goudy" id="score">
+        Score: 
+        <div class="bungee" id="score">
         </div>
       </div>
     </div>
@@ -35,9 +53,13 @@
   <div id="win">
   </div>
   <div id="lose">
-  <button onclick="quit()">Quit</button>
+  <div id="usedWords">
+  </div>
   <button onclick="newWord()" id="newWord">Next Word</button>
-  <script type="text/javascript" src="assets/javascript/game2.js"></script>
+  </article>
+</main>
+  <script type="text/javascript" src="assets/javascript/game3.js"></script>
+
 
 </body>
 </html>

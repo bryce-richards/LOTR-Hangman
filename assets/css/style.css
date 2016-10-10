@@ -1,3 +1,4 @@
+/* fonts */
 @font-face {
 	font-family: "Aniron"; src: url("../fonts/anirm___.ttf");
 }
@@ -8,20 +9,6 @@
 
 @font-face {
 	font-family: "Ringbearer"; src: url("../fonts/ringm___.ttf");
-}
-
-h1, h2 {
-	padding: 0;
-	margin: 0;
-	text-align: center;
-}
-
-#newWord {
-	display: none;
-}
-
-.centered {
-	text-align: center;
 }
 
 .aniron {
@@ -40,7 +27,29 @@ h1, h2 {
 	font-family: 'Bungee Hairline', cursive;
 }
 
-#blanks {
+body { 
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 1280px 800px;
+    text-align: center; 
+}
+
+#newWord, #usedWord {
+	display: none;
+}
+
+.centered {
+	text-align: center;
+}
+
+img {
+	width: 304px;
+	height: 228px;
+}
+
+#wordDisplay {
 	background-color: darkgreen;
 	color: chartreuse;
 	font-size: 36px;
@@ -49,7 +58,7 @@ h1, h2 {
 	text-align: center;
 }
 
-#lives {
+#lives, #score {
 	margin-top: 10px;
 	font-size: 24px;
 }
