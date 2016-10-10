@@ -3,8 +3,6 @@ var wordDisplayHTML = document.getElementById("wordDisplay");
 
 var incorrectLettersHTML = document.getElementById("incorrect");
 
-var guessesLeftHTML = document.getElementById("lives");
-
 var scoreHTML = document.getElementById("score");
 
 var alertHTML = document.getElementById("alert");
@@ -12,8 +10,6 @@ var alertHTML = document.getElementById("alert");
 var winHTML = document.getElementById("win");
 
 var loseHTML = document.getElementById("lose");
-
-var newWordHTML = document.getElementById("newWord");
 
 var usedWordsHTML = document.getElementById("usedWords");
 
@@ -78,9 +74,6 @@ var alreadyGuessed = false;
 var isGuessed = true;
 var playing = true;
 
-// display guesses left
-guessesLeftHTML.innerHTML = guessesLeft;
-
 // display score
 scoreHTML.innerHTML = score;
 
@@ -107,9 +100,6 @@ function newWord() {
   // initialize word display array
   wordDisplay = [];
   wordDisplayHTML.innerHTML = wordDisplay.join(" ");
-
-  // remove new word button
-  newWordHTML.style.display = "none";
 
   // select a random word from the names array
   currentWord = names[Math.floor(Math.random()*names.length)];
@@ -138,7 +128,6 @@ newWord();
 // player makes a guess
 document.onkeyup = function(event) {
   // reset button and alert display
-  newWordHTML.style.display="none";
   alertHTML.innerHTML = "";
 
   // assign user guess to variable
@@ -220,7 +209,6 @@ document.onkeyup = function(event) {
     wordPhotoHTML.innerHTML = "<img src='assets/images/" + currentWord + ".jpg' alt =" + currentWord + ">";
     alertHTML.innerHTML = "Way to go!";
     score++;
-    newWordHTML.style.display="block";
     usedWordsHTML.style.display="block";
   }
 
@@ -233,6 +221,5 @@ document.onkeyup = function(event) {
   // display stats
   incorrectLettersHTML.innerHTML = incorrectLetters.join(" ")
   wordDisplayHTML.innerHTML = wordDisplay.join(" ");
-  guessesLeftHTML.innerHTML = guessesLeft;
   scoreHTML.innerHTML = score;
 }
