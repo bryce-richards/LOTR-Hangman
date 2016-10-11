@@ -36,11 +36,15 @@ body {
 }
 
 img {
-	width: 304px;
-	height: 228px;
+	width: 500px;
 }
 
 #letters {
 	background-color: forestgreen;
 	color: limegreen;
+}
+
+#wordDisplay {
+	font-size: 48px;
+	text-align: center;
 }

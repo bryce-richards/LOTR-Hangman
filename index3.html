@@ -44,14 +44,16 @@
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <a href="#" class="navbar-brand aniron">Lord of the Rings</a>
+        <div class="navbar-brand aniron">
+          Lord of the Rings
+        </div>
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="#" class="btn btn-success" onclick="newWord()">
+            <div class="btn btn-success" onclick="newWord()">
               New Game
-            </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -59,64 +61,73 @@
   </div>
   
   <!-- MAIN BODY -->
-  <main class="container">
-    <!-- LEFT PANEL -->
-    <div class="col-md-12 col-sm-4">
-      <!-- SCORE -->
-      <div class="well panel panel-success">
-        <div class="panel-heading">
-          <h3 class="panel-title">Score</h3>
-        </div>
-        <div class="panel-body">
-          <div class="bungee" id="score">
+  <main>
+    <div class="row">
+      <!-- LEFT PANEL -->
+      <div class="col-md-4 col-sm-3">    
+        <!-- SCORE -->
+        <div class="well row">
+          <div class="col-md-12 panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                Score
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="bungee" id="score">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- CHARACTER -->
-      <div class="well panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Character</h3>
+        <!-- INCORRECT -->
+        <div class="well row">
+          <div class="col-md-12 panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Guesses</h3>
+            </div>
+            <div class="panel-body">
+              <div class="bungee" id="incorrect">
+              </div>
+            </div>
+          </div>  
         </div>
-        <div class="panel-body" id="wordPhoto">
-          <img src="assets/images/questionmark.png"
-        </div>
-      </div>
-      <!-- INCORRECT -->
-      <div class="well panel panel-danger">
-        <div class="panel-heading">
-          <h3 class="panel-title">Guesses</h3>
-        </div>
-        <div class="panel-body">
-          <div class="bungee" id="incorrect">
-          </div>
-        </div>
-      </div>  
-    </div>
-    
-    <!-- MAIN CONTENT -->     
-    <div class="col-md-12 col-sm-8">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="well" id="gallows">
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="well" id="letters">
-            <div id="wordDisplay">
+        <!-- CHARACTER -->
+        <div class="well row">
+          <div class="col-md-12 panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Character</h3>
+            </div>
+            <div class="panel-body" id="wordPhoto">
+              <img src="assets/images/questionmark.png">
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-    <div id="alert">
-    </div>
-    <div id="win">
-    </div>
-    <div id="lose">
-    </div>
-    <div id="usedWords">
-    </div>
+
+      <!-- MAIN CONTENT -->    
+      <div class="col-md-8 col-sm-9">
+        <div class="well row">
+          <div class="col-md-12">
+            <div class="well" id="gallows">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="well" id="letters">
+              <div class="bungee" id="wordDisplay">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+      <div id="alert">
+      </div>
+      <div id="win">
+      </div>
+      <div id="lose">
+      </div>
+      <div id="usedWords">
+      </div>
 
   <script type="text/javascript" src="assets/javascript/game3.js"></script>
 </body>

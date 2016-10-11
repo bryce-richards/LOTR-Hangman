@@ -61,8 +61,7 @@ var incorrectLetters = [];
 // on-screen blanks/letters
 var wordDisplay = [];
 
-// words already selected from main names array
-var usedWords = [];
+var userInput;
 
 // current word being guessed
 var currentWord;
@@ -103,7 +102,6 @@ function newWord() {
 
   // select a random word from the names array
   currentWord = names[Math.floor(Math.random()*names.length)];
-  usedWords.push(currentWord);
 
   // remove name from array
   names.splice(names.indexOf(currentWord), 1);
