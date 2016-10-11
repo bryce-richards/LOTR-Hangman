@@ -35,7 +35,11 @@ body {
     background-size: 1280px 800px;
 }
 
-img {
+#smallPhoto {
+	width: 245px;
+}
+
+.wide {
 	width: 500px;
 }
 

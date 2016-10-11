@@ -13,7 +13,9 @@ var loseHTML = document.getElementById("lose");
 
 var usedWordsHTML = document.getElementById("usedWords");
 
-var wordPhotoHTML = document.getElementById("wordPhoto");
+var smallPhotoHTML = document.getElementById("smallPhoto");
+
+var largePhotoHTML = document.getElementById("largePhoto");
 
 var names =[
   "ARAGORN",
@@ -203,8 +205,10 @@ document.onkeyup = function(event) {
 
   // if no blanks / word is completely guessed
   if (isGuessed) {
-    wordPhotoHTML.style.display = "block";
-    wordPhotoHTML.innerHTML = "<img src='assets/images/" + currentWord + ".jpg' alt =" + currentWord + ">";
+    smallPhotoHTML.style.display = "block";
+    largePhotoHTML.style.display = "block";
+    smallPhotoHTML.innerHTML = "<img src='assets/images/gifs/245px/" + currentWord + ".gif' alt =" + currentWord + ">";
+    largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/" + currentWord + ".gif' alt =" + currentWord + ">";
     alertHTML.innerHTML = "Way to go!";
     score++;
     usedWordsHTML.style.display="block";
