@@ -47,7 +47,7 @@ var names =[
 var score = 0;
 
 // guesses left until player loses
-var lives = 8;
+var lives = 9;
 
 // letters player can guess from (letters player hasn't yet guessed)
 var available = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -125,7 +125,7 @@ function newWord() {
   display = [];
   displayHTML.innerHTML = display.join(" ");
 
-  lives = 8;
+  lives = 9;
 
   // select a random word from the names array
   currentWord = names[Math.floor(Math.random()*names.length)];
@@ -152,7 +152,6 @@ newWord();
 document.onkeyup = function(event) {
   // reset button and alert display
   alertHTML.innerHTML = "";
-  livesHTML.innerHTML = lives;
   // assign user guess to variable
   userInput = String.fromCharCode(event.keyCode).toUpperCase();
 
