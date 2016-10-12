@@ -1,0 +1,1 @@
+<?php include_once("html6.html"); ?>

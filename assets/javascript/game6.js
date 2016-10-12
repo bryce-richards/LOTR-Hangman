@@ -8,11 +8,14 @@ var smallPhotoHTML = document.getElementById("smallPhoto");
 var largePhotoHTML = document.getElementById("largePhoto");
 var newNameHTML = document.getElementById("newName");
 
+var task = new Audio("assets/audio/task.wav");
+
 var names;
 var score;
 
 /* GAME OBJECT */
 function newGame() {
+  task.play();
   // list of name names
   names = [
   "ARAGORN",
@@ -39,8 +42,6 @@ function newGame() {
   "FARAMIR",
   "DENETHOR",
   "WORMTONGUE",
-  "CELEBORN",
-  "BALROG"
   ];
 
   // initialize score
@@ -48,6 +49,7 @@ function newGame() {
 
   // reset displays
   smallPhotoHTML.style.visibility = "hidden";
+  largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/start.gif' alt ='start'>";
   scoreHTML.innerHTML = score;
   alertBoxHTML.className = "";
   alertHTML.innerHTML = "";

@@ -26,7 +26,7 @@
 }
 
 .bungee {
-	font-family: 'Bungee Hairline', cursive;
+	font-family: 'Bungee Hairline', sans-serif;
 }
 
 /*STYLING*/
@@ -40,11 +40,20 @@ body {
 }
 
 main {
-	margin: 30px 0 0 0;
+	width: 1100px;
+	margin: 30px auto 0 auto;
 }
 
 section {
 	height: 550px;
+}
+
+.navbar-header {
+	float: left;
+}
+
+.navbar-right {
+	float: right;
 }
 
 article {
@@ -86,6 +95,7 @@ img {
 
 #smallPhoto-box {
 	height: 150px;
+	margin-top: 20px;
 }
 
 #largePhoto-box {
@@ -124,7 +134,6 @@ img {
 
 #newName {
 	opacity: 1;
-	margin-left: 20px;
 }
 
 #display {
