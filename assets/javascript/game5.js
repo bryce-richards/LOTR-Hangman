@@ -5,13 +5,9 @@ var incorrectHTML = document.getElementById("incorrect");
 
 var scoreHTML = document.getElementById("score");
 
-var guessesLeftHTML = document.getElementById("guessesLeft");
+var livesHTML = document.getElementById("lives");
 
 var alertHTML = document.getElementById("alert");
-
-var winHTML = document.getElementById("win");
-
-var loseHTML = document.getElementById("lose");
 
 var smallPhotoHTML = document.getElementById("smallPhoto");
 
@@ -51,16 +47,16 @@ var names =[
 var score = 0;
 
 // guesses left until player loses
-var guessesLeft = 8;
+var lives = 8;
 
 // letters player can guess from (letters player hasn't yet guessed)
-var availableLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+var available = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 // letters the player has guessed
-var guessedLetters = [];
+var guessed = [];
 
 // letters player guessed that aren't in the word
-var incorrecters = [];
+var incorrect = [];
 
 // on-screen blanks/letters
 var display = [];
@@ -91,32 +87,50 @@ function winGame() {
   playing = false;
 }
 
+function resetLives() {
+  lives = 9;
+  for (var i = 1; i < lives.length + 1; i++) {
+    document.getElementById("icon-" + i).style.opacity = "1";
+  }
+}
+
 function wrongGuess() {
+  lives--;
+  document.getElementById("icon-" + lives).style.opacity =
+  "0";
+}
+
+/* function to start a new game
+*/
+function newGame() {
 
 }
+/*
+*/
+
 /* function to select a random word from the names array
 */
 function newWord() {
   // initialize available letters array
-  availableLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  available = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
   // initialize incorrect letters array
   incorrect = [];
   incorrectHTML.innerHTML = incorrect.join(" ");
 
   // initialize guessed letters array
-  guessedLetters = [];
+  guessed = [];
 
   // initialize word display array
   display = [];
   displayHTML.innerHTML = display.join(" ");
 
+  lives = 8;
+
   // select a random word from the names array
   currentWord = names[Math.floor(Math.random()*names.length)];
-
   // remove name from array
   names.splice(names.indexOf(currentWord), 1);
-
   // display initial blank dashes
   for (var i = 0; i < currentWord.length; i++) {
     display.push("_");
@@ -138,15 +152,15 @@ newWord();
 document.onkeyup = function(event) {
   // reset button and alert display
   alertHTML.innerHTML = "";
-  guessesLeftHTML.innerHTML = guessesLeft;
+  livesHTML.innerHTML = lives;
   // assign user guess to variable
   userInput = String.fromCharCode(event.keyCode).toUpperCase();
 
 
   // check if guess has already been guessed
   isAvailable = false;
-  for (var i = 0; i < availableLetters.length; i++) {
-    if (availableLetters[i] === userInput)
+  for (var i = 0; i < available.length; i++) {
+    if (available[i] === userInput)
       isAvailable = true;
   }
 
@@ -154,7 +168,7 @@ document.onkeyup = function(event) {
   if (isAvailable) {
 
     // remove from available letters array
-    availableLetters.splice(availableLetters.indexOf(userInput), 1);
+    available.splice(available.indexOf(userInput), 1);
 
     // keep track of how many letters that match the player's selection
     isCorrect = false;
@@ -172,11 +186,11 @@ document.onkeyup = function(event) {
     // if still no matches, add to incorrect list and subtract lives
     if (!isCorrect) {
       incorrect.push(userInput);
-      guessesLeft--;
+      lives--;
     }
 
     // add player guess to gussed letters list
-    guessedLetters.push(userInput);
+    guessed.push(userInput);
   }
 
   // else if letter is not available
@@ -184,8 +198,8 @@ document.onkeyup = function(event) {
     alreadyGuessed = false;
 
     // check if letter has already been guessed
-    for (var k = 0; k < guessedLetters.length; k++) {
-      if (guessedLetters[k] === userInput) {
+    for (var k = 0; k < guessed.length; k++) {
+      if (guessed[k] === userInput) {
         alreadyGuessed = true;
 
         // if already guessed, let player know
@@ -200,7 +214,7 @@ document.onkeyup = function(event) {
   }
 
   // if no lives left, game over
-  if (guessesLeft === 0) {
+  if (lives === 0) {
     loseHTML.innerHTML = "Game Over!";
   }
 

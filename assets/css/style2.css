@@ -1,4 +1,4 @@
-/* fonts */
+/* FONTS */
 @font-face {
 	font-family: "Aniron"; src: url("../fonts/anirm___.ttf");
 }
@@ -27,28 +27,57 @@
 	font-family: 'Bungee Hairline', cursive;
 }
 
-body { 
+/*STYLING*/
+body {
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: 1280px 800px;
+		height: 100%;
+}
+
+article {
+	background-color: black;
+	opacity: .80;
+	text-align: center;
+	height: 400px;
+}
+
+aside {
+	font-size: 36px;
+	background-color: forestgreen;
+	opacity: .80;
+	height: 400px;
+	margin: 0 20px 0 20px;
+}
+
+.icon {
+	width: 50px;
+}
+img {
+	opacity: 1;
+}
+
+main {
+	height: 100%;
+	padding-top: 20px;
 }
 
 #smallPhoto {
 	width: 245px;
 }
 
-.wide {
+#largePhoto {
 	width: 500px;
+	background: black;
 }
 
-#letters {
-	background-color: forestgreen;
-	color: limegreen;
-}
-
-#wordDisplay {
+#display {
 	font-size: 48px;
 	text-align: center;
+	position: absolute;
+	bottom: 20px;
+	left: 5%;
+	right: 5%;
 }
