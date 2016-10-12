@@ -4,6 +4,7 @@ var incorrectHTML = document.getElementById("incorrect");
 var scoreHTML = document.getElementById("score");
 var alertBoxHTML = document.getElementById("alert-box");
 var alertHTML = document.getElementById("alert");
+var smallPhotoHTML = document.getElementById("smallPhoto");
 var largePhotoHTML = document.getElementById("largePhoto");
 var newNameHTML = document.getElementById("newName");
 
@@ -46,7 +47,9 @@ function newGame() {
   score = 0;
 
   // reset displays
+  smallPhotoHTML.style.visibility = "hidden";
   scoreHTML.innerHTML = score;
+  alertBoxHTML.className = "";
   alertHTML.innerHTML = "";
   newNameHTML.disabled = true;
 
@@ -55,16 +58,21 @@ function newGame() {
   var available = [];
   var guessed = [];
   var incorrect = [];
+
+  newName();
 }
 
 function newName() {
-  largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/start.gif' alt ='win'>";
-  newNameHTML.disabled = false;
+  newNameHTML.disabled = true;
+  smallPhotoHTML.style.visibility = "hidden";
+  largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/start.gif' alt ='start'>";
   alertBoxHTML.className = "";
+  alertHTML.innerHTML = "";
+  incorrectHTML.innerHTML = "";
   // reset lives display
   lives = 9;
-  for (var i = 1; i < lives.length + 1; i++) {
-    document.getElementById("icon").style.opacity = "1";
+  for (var i = 1; i < lives + 1; i++) {
+    document.getElementById("icon-" + i).style.visibility = "visible";
   }
   // assign new name
   name = names[Math.floor(Math.random() * names.length)];
@@ -94,6 +102,7 @@ function newName() {
   var userInput;
   /* player makes a guess */
   document.onkeyup = function(event) {
+    alertBoxHTML.className = "";
     alertHTML.innerHTML = "";
     // assign user guess to variable
     userInput = String.fromCharCode(event.keyCode).toUpperCase();
@@ -120,8 +129,8 @@ function newName() {
       }
       // if still no matches, add to incorrect list and subtract lives
       if (!isCorrect) {
-        document.getElementById("icon-" + lives).style.opacity =
-        "0";
+        document.getElementById("icon-" + lives).style.visibility =
+        "hidden";
         lives--;
         incorrect.push(userInput);
         incorrectHTML.innerHTML = incorrect.join(" ");
@@ -147,36 +156,42 @@ function newName() {
         alertHTML.innerHTML = "Please guess a letter!";
       }
     }
-    // if no lives left, game over
-    if (lives === 0) {
-      alertBoxHTML.className = "alert alert-dismissible alert-danger";
-      alertHTML.innerHTML = "Game Over!";
-      largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/lose.gif' alt ='win'>";
-    }
     // check if name is guessed
     isGuessed = true;
-    for (var l = 0; l < display.length; l++) {
-      if (display[l] === "_") {
+    for (var m = 0; m < display.length; m++) {
+      if (display[m] === "_") {
         isGuessed = false;
       }
     }
     // if no blanks / name is completely guessed
     if (isGuessed) {
-      largePhotoHTML.style.opacity = "1";
       largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/" + name + ".gif' alt =" + name + ">";
+      smallPhotoHTML.style.visibility = "visible";
+      smallPhotoHTML.innerHTML = "<img src='assets/images/gifs/shire-win.gif' alt ='shire-win'>";
       alertBoxHTML.className = "alert alert-dismissible alert-success";
       alertHTML.innerHTML = "Nice!";
       score++;
       scoreHTML.innerHTML = score;
-      newNameHTML.disabled = true;
+      newNameHTML.disabled = false;
     }
     if (names.length === 0) {
       alertBoxHTML.className = "alert alert-dismissible alert-info";
       alertHTML.innerHTML = "You guessed all the names!";
       largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/win.gif' alt ='win'>";
     }
+    // if no lives left, game over
+    if (lives === 0) {
+      alertBoxHTML.className = "alert alert-dismissible alert-danger";
+      alertHTML.innerHTML = "Game Over!";
+      smallPhotoHTML.style.visibility = "visible";
+      smallPhotoHTML.innerHTML = "<img src='assets/images/gifs/sauron.gif' alt ='shire-win'>";
+      largePhotoHTML.innerHTML = "<img src='assets/images/gifs/500px/lose.gif' alt ='win'>";
+      for (var l = 0; l < name.length; l++) {
+        display[l] = name.charAt(l);
+      }
+      displayHTML.innerHTML = display.join(" ");
+    }
   };
 }
 
 newGame();
-newName();

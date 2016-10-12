@@ -69,7 +69,6 @@ aside {
 }
 
 .icon {
-	opacity: 1;
 	padding: 5%;
 	margin: 0 auto;
 	text-align: center;
@@ -83,6 +82,10 @@ img {
 
 #largePhoto {
 	margin: 0 auto;
+}
+
+#smallPhoto-box {
+	height: 150px;
 }
 
 #largePhoto-box {
