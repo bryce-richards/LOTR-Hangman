@@ -11,7 +11,6 @@ Guess as many Lord of the Rings characters as you can before you run out of live
 ## Technology
 
 * [JavaScript] (https://www.javascript.com/)
-* [jQuery] (https://jquery.com/)
 * [Twitter Bootstrap] (http://getbootstrap.com/)
 
 ## Acknowledgments
