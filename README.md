@@ -4,18 +4,18 @@ Guess as many Lord of the Rings characters as you can before you run out of live
 
 ## Demo
 
-[Link] (https://lotr-hangman.herokuapp.com/)
+[Link](https://lotr-hangman.herokuapp.com/)
 
-![Screenshot] (https://github.com/bryce-richards/LOTR-Hangman/blob/master/LOTR-hangman.png)
+![Screenshot](https://github.com/bryce-richards/LOTR-Hangman/blob/master/LOTR-hangman.png)
 
 ## Technology
 
-* [JavaScript] (https://www.javascript.com/)
-* [Twitter Bootstrap] (http://getbootstrap.com/)
+* [JavaScript](https://www.javascript.com/)
+* [Twitter Bootstrap](http://getbootstrap.com/)
 
 ## Acknowledgments
 
-Bootstrap theme by [Bootswatch] (http://bootswatch.com/)
+Bootstrap theme by [Bootswatch](http://bootswatch.com/)
 
 ## Author
 
